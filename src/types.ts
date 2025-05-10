@@ -17,11 +17,11 @@ export interface CartType {
   totalPrice: number;
 }
 
-export interface PizzaInterface {
+export interface PizzaType {
   id: number;
   name: string;
   unitPrice: number;
-  ingredients: unknown;
+  ingredients: string[];
   soldOut: boolean;
   imageUrl: string;
 }
