@@ -5,7 +5,7 @@ import type { PizzaType } from "../../types";
 
 function Menu() {
   const menu = useLoaderData();
-  
+
   return (
     <ul>
       {menu.map((pizza: PizzaType) => (
