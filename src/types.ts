@@ -6,7 +6,7 @@ export interface OrderType {
   priority: boolean;
   estimatedDelivery: string;
   status: string;
-  cart: CartType;
+  cart: CartType[];
 }
 
 export interface CartType {
