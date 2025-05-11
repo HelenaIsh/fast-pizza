@@ -1,5 +1,5 @@
-import type { PizzaType } from "../../types";
-import { formatCurrency } from "../../utils/helpers";
+import type { PizzaType } from '../../types';
+import { formatCurrency } from '../../utils/helpers';
 
 function MenuItem({ pizza }: { pizza: PizzaType }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
@@ -9,7 +9,7 @@ function MenuItem({ pizza }: { pizza: PizzaType }) {
       <img src={imageUrl} alt={name} />
       <div>
         <p>{name}</p>
-        <p>{ingredients.join(", ")}</p>
+        <p>{ingredients.join(', ')}</p>
         <div>
           {!soldOut ? <p>{formatCurrency(unitPrice)}</p> : <p>Sold out</p>}
         </div>

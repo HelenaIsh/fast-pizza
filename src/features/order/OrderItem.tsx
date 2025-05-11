@@ -1,5 +1,5 @@
-import type { ItemType } from "../../types";
-import { formatCurrency } from "../../utils/helpers";
+import type { ItemType } from '../../types';
+import { formatCurrency } from '../../utils/helpers';
 
 function OrderItem({
   item,

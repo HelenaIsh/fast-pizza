@@ -1,5 +1,5 @@
-import type { CartType } from "../../types";
-import { formatCurrency } from "../../utils/helpers";
+import type { CartType } from '../../types';
+import { formatCurrency } from '../../utils/helpers';
 
 function CartItem({ item }: { item: CartType }) {
   const { pizzaId, name, quantity, totalPrice } = item;

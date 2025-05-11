@@ -1,12 +1,12 @@
 // Test ID: IIDSAT, CQE92U
 
-import { useLoaderData, type LoaderFunctionArgs } from "react-router-dom";
-import { getOrder } from "../../services/apiRestaurant";
+import { useLoaderData, type LoaderFunctionArgs } from 'react-router-dom';
+import { getOrder } from '../../services/apiRestaurant';
 import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
-} from "../../utils/helpers";
+} from '../../utils/helpers';
 
 function Order() {
   const { status, priority, priorityPrice, orderPrice, estimatedDelivery } =
@@ -29,7 +29,7 @@ function Order() {
         <p>
           {deliveryIn >= 0
             ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
-            : "Order should have arrived"}
+            : 'Order should have arrived'}
         </p>
         <p>(Estimated delivery: {formatDate(estimatedDelivery)})</p>
       </div>
