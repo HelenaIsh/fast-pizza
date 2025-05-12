@@ -28,7 +28,7 @@ function Cart() {
       <div className="mt-6 space-x-2">
         <Button to="/order/new">Order pizzas</Button>
         <Button
-          size="secondary"
+          type="secondary"
           onClick={() => {
             dispatch(clearCart());
           }}
