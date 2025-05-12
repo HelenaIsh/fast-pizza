@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Button({
@@ -9,7 +9,7 @@ export default function Button({
   type: size = 'primary',
 }: {
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   to?: string;
   type?: 'small' | 'primary' | 'secondary' | 'round';

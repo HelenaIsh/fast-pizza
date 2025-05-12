@@ -59,22 +59,22 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) =>
-      builder
-        .addCase(fetchAddress.pending, (state) => {
-          state.status = 'loading';
-        })
-        .addCase(fetchAddress.fulfilled, (state, action) => {
-          console.log(action);
+    builder
+      .addCase(fetchAddress.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchAddress.fulfilled, (state, action) => {
+        console.log(action);
 
-          state.status = 'idle';
-          state.position = action.payload.position;
-          state.address = action.payload.address;
-          state.error = '';
-        })
-        .addCase(fetchAddress.rejected, (state, action) => {
-          state.status = 'error';
-          state.error = action.error.message || 'Failed to fetch address';
-        }),
+        state.status = 'idle';
+        state.position = action.payload.position;
+        state.address = action.payload.address;
+        state.error = '';
+      })
+      .addCase(fetchAddress.rejected, (state, action) => {
+        state.status = 'error';
+        state.error = action.error.message || 'Failed to fetch address';
+      }),
 });
 
 export const { updateName } = userSlice.actions;
