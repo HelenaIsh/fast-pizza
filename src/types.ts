@@ -10,7 +10,7 @@ export interface OrderType {
 }
 
 export interface CartType {
-  pizzaId: number;
+  pizzaId: string;
   name: string;
   quantity: number;
   unitPrice: number;
@@ -18,7 +18,7 @@ export interface CartType {
 }
 
 export interface PizzaType {
-  id: number;
+  id: string;
   name: string;
   unitPrice: number;
   ingredients: string[];
