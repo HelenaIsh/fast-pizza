@@ -12,9 +12,10 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../../store';
 import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
 import EmptyCart from '../cart/EmptyCart';
-import store from '../../store';
+import store, { useAppDispatch } from '../../store';
 import { formatCurrency } from '../../utils/helpers';
 import { useState } from 'react';
+import { fetchAddress } from '../user/userSlice';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str: string) =>
@@ -29,6 +30,8 @@ function CreateOrder() {
   const formErrors = useActionData();
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
+  const dispatch = useAppDispatch();
+
   const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
   const totalPrice = totalCartPrice + priorityPrice;
 
@@ -41,6 +44,8 @@ function CreateOrder() {
   return (
     <div className="px-4 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
+
+      <button onClick={() => dispatch(fetchAddress())}>Test</button>
 
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -104,7 +109,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const cartValue = typeof data.cart === 'string' ? data.cart : '';
-  
+
   const order = {
     ...data,
     cart: JSON.parse(cartValue) as CartType[],
@@ -116,7 +121,7 @@ export async function action({ request }: ActionFunctionArgs) {
     phone: data.phone as string,
     address: data.address as string,
   };
-  
+
   const newOrder = await createOrder(order);
 
   const errors: { phone?: string } = {};

@@ -1,14 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import type { PizzaType } from '../../types';
 import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
 import { addItem, getPizzaQuantityById } from '../cart/cartSlice';
 import DeleteItem from '../cart/DeleteItem';
 import UpdateItemQuantity from '../cart/updateItemQuantity';
+import { useAppDispatch } from '../../store';
 
 function MenuItem({ pizza }: { pizza: PizzaType }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const currentQuantity = useSelector(getPizzaQuantityById(id));
 
   const handleAddToCart = () => {

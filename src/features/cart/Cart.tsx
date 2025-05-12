@@ -1,15 +1,15 @@
 import LinkButton from '../../ui/LinkButton';
 import Button from '../../ui/Button';
 import CartItem from './CartItem';
-import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '../../store';
+import { useSelector } from 'react-redux';
+import { useAppDispatch, type RootState } from '../../store';
 import { clearCart, getCart } from './cartSlice';
 import EmptyCart from './EmptyCart';
 
 function Cart() {
   const cart = useSelector(getCart);
   const username = useSelector((state: RootState) => state.user.username);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   if (!cart.length) {
     return <EmptyCart />;
