@@ -32,3 +32,7 @@ export interface ItemType {
   totalPrice: number;
   id: string;
 }
+
+export interface UserType {
+  username: string;
+}
