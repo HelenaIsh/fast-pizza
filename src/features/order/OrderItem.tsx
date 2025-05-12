@@ -1,4 +1,4 @@
-import type { ItemType } from '../../types';
+import type { CartType } from '../../types';
 import { formatCurrency } from '../../utils/helpers';
 
 function OrderItem({
@@ -6,7 +6,7 @@ function OrderItem({
   isLoadingIngredients,
   ingredients,
 }: {
-  item: ItemType;
+  item: CartType;
   isLoadingIngredients?: boolean;
   ingredients?: unknown;
 }) {

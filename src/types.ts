@@ -26,13 +26,6 @@ export interface PizzaType {
   imageUrl: string;
 }
 
-export interface ItemType {
-  quantity: number;
-  name: string;
-  totalPrice: number;
-  id: string;
-}
-
 export interface UserType {
   username: string;
 }

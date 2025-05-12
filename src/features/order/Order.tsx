@@ -8,7 +8,7 @@ import {
   formatDate,
 } from '../../utils/helpers';
 import OrderItem from './OrderItem';
-import type { ItemType } from '../../types';
+import type { CartType } from '../../types';
 
 function Order() {
   const {
@@ -52,8 +52,8 @@ function Order() {
       </div>
 
       <ul className="border-stone-200s divide-y divide-stone-200 border-t border-b">
-        {cart.map((item: ItemType) => {
-          <OrderItem item={item} key={item.id} />;
+        {cart.map((item: CartType) => {
+          return <OrderItem item={item} key={item.pizzaId} />;
         })}
       </ul>
 

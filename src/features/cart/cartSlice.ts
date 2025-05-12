@@ -58,8 +58,6 @@ export const getTotalCartPrice = (store: RootState) => {
 };
 
 export const getCart = (store: RootState) => {
-  console.log(store.cart.cart);
-
   return store.cart.cart;
 };
 
