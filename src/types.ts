@@ -30,4 +30,5 @@ export interface ItemType {
   quantity: number;
   name: string;
   totalPrice: number;
+  id: string;
 }
