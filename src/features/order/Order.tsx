@@ -1,11 +1,6 @@
 // Test ID: IIDSAT, CQE92U
 
-import {
-  useFetcher,
-  useLoaderData,
-  type LoaderFunctionArgs,
-} from 'react-router-dom';
-import { getOrder } from '../../services/apiRestaurant';
+import { useFetcher, useLoaderData } from 'react-router-dom';
 import {
   calcMinutesLeft,
   formatCurrency,
@@ -99,12 +94,6 @@ function Order() {
       {!priority && <UpdateOrder />}
     </div>
   );
-}
-
-export async function loader({ params }: LoaderFunctionArgs) {
-  if (!params.orderId) return;
-  const order = await getOrder(params.orderId);
-  return order;
 }
 
 export default Order;

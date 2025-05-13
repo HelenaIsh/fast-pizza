@@ -1,6 +1,5 @@
-import { useFetcher, type ActionFunctionArgs } from 'react-router-dom';
+import { useFetcher } from 'react-router-dom';
 import Button from '../../ui/Button';
-import { updateOrder } from '../../services/apiRestaurant';
 
 export default function UpdateOrder() {
   const fetcher = useFetcher();
@@ -10,12 +9,4 @@ export default function UpdateOrder() {
       <Button>Make Priority</Button>
     </fetcher.Form>
   );
-}
-
-export async function action({ params }: ActionFunctionArgs) {
-  if (params.orderId) {
-    const data = { priority: true };
-    await updateOrder(params.orderId, data);
-  }
-  return null;
 }

@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAddress } from '../../services/apiGeocoding';
 
 interface Position {
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
 }
 
-function getPosition(): Promise<any> {
+function getPosition(): Promise<GeolocationPosition> {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
@@ -31,21 +31,15 @@ const initialState: UserState = {
 export const fetchAddress = createAsyncThunk(
   'user/fetchAddress',
   async function () {
-    console.log('Fetching position...');
     const positionObj = await getPosition();
-    console.log('Position obtained:', positionObj);
 
     const position = {
-      latitude: positionObj.coords.latitude,
-      longitude: positionObj.coords.longitude,
+      latitude: positionObj.coords.latitude.toString(),
+      longitude: positionObj.coords.longitude.toString(),
     };
-    console.log('Formatted position:', position);
 
     const addressObj = await getAddress(position);
-    console.log('Address object:', addressObj);
-
     const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
-    console.log('Formatted address:', address);
 
     return { position, address };
   }

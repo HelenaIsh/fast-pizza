@@ -1,12 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './ui/Home';
-import Menu, { loader as menuLoader } from './features/menu/Menu';
+import Menu from './features/menu/Menu';
+import { loader as menuLoader } from './features/menu/menu-loader'
 import Cart from './features/cart/Cart';
-import CreateOrder, {
+import CreateOrder from './features/order/CreateOrder';
+import {
   action as createOrderAction,
-} from './features/order/CreateOrder';
-import Order, { loader as orderLoader } from './features/order/Order';
-import { action as updateOrderAction } from './features/order/updateOrder';
+} from './features/order/order-action'
+import Order from './features/order/Order';
+import { loader as orderLoader }  from './features/order/order-loader';
+import { action as updateOrderAction } from './features/order/update-order-action';
 import { AppLayout } from './ui/AppLayout';
 import Error from './ui/Error';
 
