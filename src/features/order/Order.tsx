@@ -14,8 +14,10 @@ import {
 import OrderItem from './OrderItem';
 import type { CartType, PizzaType } from '../../types';
 import { useEffect } from 'react';
+import UpdateOrder from './updateOrder';
 
 function Order() {
+  const order = useLoaderData();
   const {
     id,
     status,
@@ -24,7 +26,7 @@ function Order() {
     orderPrice,
     estimatedDelivery,
     cart,
-  } = useLoaderData();
+  } = order;
   const fetcher = useFetcher();
 
   useEffect(() => {
@@ -93,6 +95,8 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder />}
     </div>
   );
 }
