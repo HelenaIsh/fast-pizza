@@ -84,7 +84,7 @@ function CreateOrder() {
               required
               className="input"
               disabled={isLoadingAddress}
-              value={address}
+              defaultValue={address}
             />
             {addressStatus === 'error' && (
               <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">

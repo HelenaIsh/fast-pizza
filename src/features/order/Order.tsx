@@ -1,6 +1,10 @@
 // Test ID: IIDSAT, CQE92U
 
-import { useLoaderData, type LoaderFunctionArgs } from 'react-router-dom';
+import {
+  useFetcher,
+  useLoaderData,
+  type LoaderFunctionArgs,
+} from 'react-router-dom';
 import { getOrder } from '../../services/apiRestaurant';
 import {
   calcMinutesLeft,
@@ -8,7 +12,8 @@ import {
   formatDate,
 } from '../../utils/helpers';
 import OrderItem from './OrderItem';
-import type { CartType } from '../../types';
+import type { CartType, PizzaType } from '../../types';
+import { useEffect } from 'react';
 
 function Order() {
   const {
@@ -20,6 +25,13 @@ function Order() {
     estimatedDelivery,
     cart,
   } = useLoaderData();
+  const fetcher = useFetcher();
+
+  useEffect(() => {
+    if (!fetcher.data && fetcher.state === 'idle') {
+      fetcher.load('/menu');
+    }
+  }, [fetcher]);
 
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
@@ -53,7 +65,18 @@ function Order() {
 
       <ul className="border-stone-200s divide-y divide-stone-200 border-t border-b">
         {cart.map((item: CartType) => {
-          return <OrderItem item={item} key={item.pizzaId} />;
+          return (
+            <OrderItem
+              item={item}
+              key={item.pizzaId}
+              ingredients={
+                fetcher?.data?.find(
+                  (pizza: PizzaType) => pizza.id === item.pizzaId
+                ).ingredients
+              }
+              isLoadingIngredients={fetcher?.state === 'loading'}
+            />
+          );
         })}
       </ul>
 
