@@ -9,7 +9,7 @@ import {
 import OrderItem from './OrderItem';
 import type { CartType, PizzaType } from '../../types';
 import { useEffect } from 'react';
-import UpdateOrder from './updateOrder';
+import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData();

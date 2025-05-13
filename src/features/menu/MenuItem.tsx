@@ -4,7 +4,7 @@ import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
 import { addItem, getPizzaQuantityById } from '../cart/cartSlice';
 import DeleteItem from '../cart/DeleteItem';
-import UpdateItemQuantity from '../cart/updateItemQuantity';
+import UpdateItemQuantity from '../cart/UpdateItemQuantity';
 import { useAppDispatch } from '../../store';
 
 function MenuItem({ pizza }: { pizza: PizzaType }) {

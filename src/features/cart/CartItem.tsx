@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import type { CartType } from '../../types';
 import { formatCurrency } from '../../utils/helpers';
 import DeleteItem from './DeleteItem';
-import UpdateItemQuantity from './updateItemQuantity';
+import UpdateItemQuantity from './UpdateItemQuantity';
 import { getPizzaQuantityById } from './cartSlice';
 
 function CartItem({ item }: { item: CartType }) {
